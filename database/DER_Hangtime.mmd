@@ -1,0 +1,10 @@
+erDiagram
+    Usuarios ||--o{ Pedidos : realiza
+    Pedidos ||--|{ Items : contiene
+    Talles ||--o{ Items : "se vende en"
+    Productos ||--|{ Talles : "tiene stock por"
+    Usuarios { int Id PK string Email UK string PasswordHash string Rol int IntentosFallidos datetime BloqueadoHasta }
+    Productos { int Id PK string Nombre decimal Precio string Categoria bool Activo }
+    Talles { int Id PK int ProductoId FK int Numero int Stock }
+    Pedidos { int Id PK int UsuarioId FK string Estado decimal Total }
+    Items { int Id PK int PedidoId FK int TalleId FK int Cantidad decimal PrecioUnitario }
